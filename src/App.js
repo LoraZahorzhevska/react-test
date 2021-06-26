@@ -3,7 +3,7 @@ import "./App.css";
 // import Counter from "./components/counter/Counter";
 // import Dropdown from "./components/Dropdown/Dropdown";
 // import ColorPicker from "./components/ColorPicker/ColorPicker";
-import TodoList from "./components/TodoList";
+// import TodoList from "./components/TodoList";
 
 // const colorPickerOptions = [
 //   { label: "red", color: "#F44336" },
@@ -15,45 +15,52 @@ import TodoList from "./components/TodoList";
 // ];
 
 class App extends Component {
+  // state = {
+  //   todos: [
+  //     { id: "id-1", text: "Выучить основы React", completed: true },
+  //     { id: "id-2", text: "Разобраться с React Router", completed: false },
+  //     { id: "id-3", text: "Пережить Redux", completed: false },
+  //   ],
+  // };
+
+  // для инпутов
+
   state = {
-    todos: [
-      { id: "id-1", text: "Выучить основы React", completed: true },
-      { id: "id-2", text: "Разобраться с React Router", completed: false },
-      { id: "id-3", text: "Пережить Redux", completed: false },
-    ],
+    inputValue: "123",
   };
 
   // мы хотим изменить состояние от предыдущего
   // хотим взять все todo кроме того id которого мы передаем
-  deleteTodo = (todoId) => {
-    this.setState((prevState) => ({
-      todos: prevState.todos.filter((todo) => todo.id !== todoId),
-      // мы не мутируем коллекцию
-      // prevState.todos - предыдущее значение todos
-      // filter((todo) => todo.id !== todoId) - для каждой из них проверяем айишник
-      // в новый массив возвращаем тот id, который не равен
-    }));
-  };
+  // deleteTodo = (todoId) => {
+  //   this.setState((prevState) => ({
+  //     todos: prevState.todos.filter((todo) => todo.id !== todoId),
+  // мы не мутируем коллекцию
+  // prevState.todos - предыдущее значение todos
+  // filter((todo) => todo.id !== todoId) - для каждой из них проверяем айишник
+  // в новый массив возвращаем тот id, который не равен
+  //   }));
+  // };
 
   render() {
-    const { todos } = this.state;
+    // const { todos } = this.state;
 
-    const completeTodosCount = todos.reduce(
-      // (acc, todo) => (todo.completed ? acc + 1 : acc),
-      (total, todo) => (todo.completed ? total + 1 : total),
-      0
-    );
+    // const completeTodosCount = todos.reduce(
+    //   // (acc, todo) => (todo.completed ? acc + 1 : acc),
+    //   (total, todo) => (todo.completed ? total + 1 : total),
+    //   0
+    // );
 
     return (
       <>
+        <input type="text" value={this.state.inputValue} />
         {/* <ColorPicker options={colorPickerOptions} /> */}
 
-        <div>
+        {/* <div>
           <span>Общее кол-во:{todos.length}</span>
           <span>Кол-во выполненых:{completeTodosCount}</span>
-        </div>
+        </div> */}
 
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        {/* <TodoList todos={todos} onDeleteTodo={this.deleteTodo} /> */}
       </>
     );
   }
