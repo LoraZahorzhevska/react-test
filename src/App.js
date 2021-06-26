@@ -26,8 +26,31 @@ class App extends Component {
   // для инпутов
 
   state = {
-    inputValue: "123",
+    name: "",
+    tag: "",
   };
+
+  handleChange = (event) => {
+    // console.log(event.currentTarget);
+    // console.log(event.currentTarget.name);
+    // console.log(event.currentTarget.value);
+
+    const { name, value } = event.currentTarget;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  // handleNameChange = (event) => {
+  //   // console.log(event.currentTarget.value);
+
+  //   this.setState({ name: event.currentTarget.value });
+  // };
+
+  // handleTagChange = (event) => {
+  //   this.setState({ tag: event.currentTarget.value });
+  // };
 
   // мы хотим изменить состояние от предыдущего
   // хотим взять все todo кроме того id которого мы передаем
@@ -52,7 +75,26 @@ class App extends Component {
 
     return (
       <>
-        <input type="text" value={this.state.inputValue} />
+        <form>
+          <label>
+            Name{" "}
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Tag{" "}
+            <input
+              type="text"
+              name="tag"
+              value={this.state.tag}
+              onChange={this.handleChange}
+            />
+          </label>
+        </form>
         {/* <ColorPicker options={colorPickerOptions} /> */}
 
         {/* <div>
