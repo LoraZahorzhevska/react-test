@@ -4,6 +4,7 @@ import "./App.css";
 // import Dropdown from "./components/Dropdown/Dropdown";
 // import ColorPicker from "./components/ColorPicker/ColorPicker";
 // import TodoList from "./components/TodoList";
+import Form from "./components/Form/Form";
 
 // const colorPickerOptions = [
 //   { label: "red", color: "#F44336" },
@@ -25,32 +26,11 @@ class App extends Component {
 
   // для инпутов
 
-  state = {
-    name: "",
-    tag: "",
+  state = {};
+
+  formSubmitNandler = (data) => {
+    console.log(data);
   };
-
-  handleChange = (event) => {
-    // console.log(event.currentTarget);
-    // console.log(event.currentTarget.name);
-    // console.log(event.currentTarget.value);
-
-    const { name, value } = event.currentTarget;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  // handleNameChange = (event) => {
-  //   // console.log(event.currentTarget.value);
-
-  //   this.setState({ name: event.currentTarget.value });
-  // };
-
-  // handleTagChange = (event) => {
-  //   this.setState({ tag: event.currentTarget.value });
-  // };
 
   // мы хотим изменить состояние от предыдущего
   // хотим взять все todo кроме того id которого мы передаем
@@ -75,26 +55,8 @@ class App extends Component {
 
     return (
       <>
-        <form>
-          <label>
-            Name{" "}
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            Tag{" "}
-            <input
-              type="text"
-              name="tag"
-              value={this.state.tag}
-              onChange={this.handleChange}
-            />
-          </label>
-        </form>
+        <Form onSubmit={this.formSubmitNandler} />
+
         {/* <ColorPicker options={colorPickerOptions} /> */}
 
         {/* <div>
